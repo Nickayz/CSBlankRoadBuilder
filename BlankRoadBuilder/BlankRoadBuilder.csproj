@@ -46,6 +46,7 @@
 			$(ManagedDLLPath);
 			$(CitiesSkylinesBinaries);
 			$(SteamPath)/steamapps/workshop/content/255710/2669938594/;
+			$(SteamPath)/steamapps/workshop/content/255710/3683231517/;
 			$(SolutionDir)/libs/
 		</AssemblySearchPaths>
 	</PropertyGroup>
