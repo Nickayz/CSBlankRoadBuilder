@@ -81,7 +81,7 @@ public class BlankRoadBuilderMod : BasePatcherMod<BlankRoadBuilderMod>
 			var dependencyInfos = base.DependencyInfos;
 
 			dependencyInfos.Add(get("Intersection Marking Tool", 2140418403ul, 2159934925uL));
-			dependencyInfos.Add(get("Adaptive Networks", 2414618415ul, 2669938594uL));
+			dependencyInfos.Add(getThreeIds("Adaptive Networks", 2414618415ul, 2669938594uL, 3683231517uL));
 			dependencyInfos.Add(get("TM:PE", 1637663252ul, 2489276785uL));
 			dependencyInfos.Add(get("Network Anarchy", 2862881785ul, 2917150208uL, DependencyState.Disable));
 
@@ -91,6 +91,13 @@ public class BlankRoadBuilderMod : BasePatcherMod<BlankRoadBuilderMod>
 			{
 				var allSearcher = IdSearcher.Invalid & new UserModNameSearcher(name, BaseMatchSearcher.Option.AllOptions | BaseMatchSearcher.Option.StartsWidth);
 				var anySearcher = new IdSearcher(id) | new IdSearcher(id2);
+
+				return new NeedDependencyInfo(dependency, allSearcher | anySearcher, name, id);
+			}
+			static NeedDependencyInfo getThreeIds(string name, ulong id, ulong id2, ulong id3, DependencyState dependency = DependencyState.Enable)
+			{
+				var allSearcher = IdSearcher.Invalid & new UserModNameSearcher(name, BaseMatchSearcher.Option.AllOptions | BaseMatchSearcher.Option.StartsWidth);
+				var anySearcher = new IdSearcher(id) | new IdSearcher(id2) | new IdSearcher(id3);
 
 				return new NeedDependencyInfo(dependency, allSearcher | anySearcher, name, id);
 			}
